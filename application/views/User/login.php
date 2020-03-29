@@ -14,8 +14,9 @@
 				  <label for="password">Password</label>
 				  <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
 				</div>
-				<button type="submit" class="btn btn-primary">Login</button>
-				<a href="<?= base_url();?>User/register" class="btn btn-danger ml-2">Register</a>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
 			</form>
 			<?= form_close(); ?>
 		</div>

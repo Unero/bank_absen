@@ -13,8 +13,9 @@ class Absensi extends CI_Controller {
 	}
 	
 	function index(){
+        $data['title'] = "Absensi";
         $data['dataAbsen'] = json_decode($this->curl->simple_get($this->API.'Absensi'));
-		$this->load->view('templates/header');
+		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view('Absensi/list',$data);
 		$this->load->view('templates/footer');
