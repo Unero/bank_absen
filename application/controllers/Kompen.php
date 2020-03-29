@@ -2,11 +2,11 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Point extends CI_Controller {
+class Kompen extends CI_Controller {
 
-    public function index()
-    {
-		$data['title'] = "Penukaran Point";
+	public function index()
+	{
+		$data['title'] = "Check Kompen";
 		if ($this->session->userdata('isLogin') == false) {
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/navbar');
@@ -18,10 +18,10 @@ class Point extends CI_Controller {
 			$this->load->view('Point/index');
 			$this->load->view('templates/footer');
 		}
-    }
+	}
 
 }
 
-/* End of file Point.php */
+/* End of file Denda.php */
 
 ?>

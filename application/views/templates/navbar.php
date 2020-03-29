@@ -9,7 +9,7 @@
 			<a class="nav-item nav-link" href="<?= base_url();?>Home"><u>Home</u></a>
 			<a class="nav-item nav-link" href="<?= base_url();?>Absensi"><u>Absensi</u></a>
 			<a class="nav-item nav-link" href="<?= base_url();?>Point"><u>Exchange Point</u></a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Point"><u>Denda</u></a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Kompen"><u>Kompen</u></a>
 		</div>
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link" href="<?= base_url();?>User/login">Login</a>
