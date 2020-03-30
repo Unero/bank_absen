@@ -4,39 +4,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Absensi extends CI_Controller {
 
-    var $API ="";
-
     function __construct() {
-        parent::__construct();
-        $this->API="http://absensi.tugas-ti-2b.com/Api/";
-        $this->load->library('curl');
+        parent::__construct();		
 	}
 	
 	function index(){
-        $data['title'] = "Absensi";
-        $data['dataAbsen'] = json_decode($this->curl->simple_get($this->API.'Absensi'));
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar');
-		$this->load->view('Absensi/list',$data);
-		$this->load->view('templates/footer');
-	}
+		$this->load->model('Absensi_model');
+		$data['title'] = "Absensi";
+		
+		if ($this->session->userdata('isLogin') == false) {
+			$data['dataAbsen'] = $this->Absensi_model->tampil();
+		
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/navbar');
+			$this->load->view('Absensi/list',$data);
+			$this->load->view('templates/footer');
+		} else {
+			$data['pointable'] = $this->Absensi_model->tampilByUser($this->session->userdata('nim'));
+			$data['dataAbsen'] = $this->Absensi_model->nonPoint($this->session->userdata('nim'));
 	
-	function delete($id){
-        if(empty($id)){
-            redirect('Absensi');
-        }else{
-            $delete =  $this->curl->simple_delete($this->API.'Absensi', array('id'=>$id), array(CURLOPT_BUFFERSIZE => 10)); 
-            if($delete)
-            {
-                $this->session->set_flashdata('hasil','Delete Data Berhasil');
-            }else
-            {
-               $this->session->set_flashdata('hasil','Delete Data Gagal');
-            }
-            redirect('Absensi');
-        }
-    }
-
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/navbar_af_login');
+			$this->load->view('Absensi/toPoint',$data);
+			$this->load->view('templates/footer');
+		}
+	}
 }
 
 /* End of file Absensi.php */

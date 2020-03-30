@@ -6,10 +6,9 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav mr-auto">
-			<a class="nav-item nav-link" href="<?= base_url();?>Home"><u>Home</u></a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Absensi"><u>Absensi</u></a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Point"><u>Exchange Point</u></a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Kompen"><u>Kompen</u></a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Absensi">📚Absensi</a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Point">💱Tukar Point</a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Keranjang">🛒Cart</a>
 		</div>
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link" href="<?= base_url();?>User/login">Login</a>

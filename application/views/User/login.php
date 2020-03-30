@@ -16,6 +16,7 @@
 				</div>
 				<div class="text-center">
 					<button type="submit" class="btn btn-primary">Login</button>
+					<a href="register" class="btn btn-info">Register</a>
 				</div>
 			</form>
 			<?= form_close(); ?>

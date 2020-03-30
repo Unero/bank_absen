@@ -17,6 +17,53 @@ class User extends CI_Controller {
 		}
 	}
 
+	public function register()
+	{
+		if ($this->session->userdata('isLogin')) {
+			redirect('Home','refresh');
+		} else {
+			$this->load->model('Regist_model');
+			
+			$data['title'] = "Halaman Register";
+			$data['nim'] = $this->Regist_model->getNIM();
+			$data['kelas'] = $this->Regist_model->getKelas();
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/navbar');
+			$this->load->view('User/register', $data);
+			$this->load->view('templates/footer');
+		}
+	}
+
+	public function register_ps(){
+		$this->load->model('Regist_model');
+		
+		if ($this->input->post()) {
+			$data['username'] = htmlspecialchars($this->input->post('username'));
+			$data['password'] = htmlspecialchars($this->input->post('password'));
+			$data['nim'] = htmlspecialchars($this->input->post('nim'));
+			$data['nama'] = htmlspecialchars($this->input->post('nama'));
+			$data['kelas'] = htmlspecialchars($this->input->post('kelas'));
+			
+			if ($this->Regist_model->getUsername($data['username']) >= 1) {
+				$data['pesan'] = "Akun sudah ada";
+				$data['title'] = "Register";
+				$this->load->view('templates/header', $data);
+				$this->load->view('User/register', $data);
+				$this->load->view('templates/footer');
+			} else {
+				$createUser = $this->Regist_model->createUser($data);
+				if ($createUser) {
+					redirect('User/login','refresh');
+				}
+			}
+
+		} else {
+			redirect('User/register','refresh');
+		}
+	}
+
+
 	public function login_proses(){
 		if ($this->session->userdata('isLogin')) {
 			redirect('Home','refresh');
@@ -30,6 +77,7 @@ class User extends CI_Controller {
 				foreach ($ceklogin as $row);
 				$this->session->set_userdata('user', $row->username);
 				$this->session->set_userdata('type', $row->type);
+				$this->session->set_userdata('nim', $row->nim);
 				$this->session->set_userdata('isLogin', true);
 	
 				if ($this->session->userdata('type') == "1") {
@@ -66,11 +114,14 @@ class User extends CI_Controller {
 		$data['title'] = "Profile Page";
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar');
+		if ($this->session->userdata('isLogin') == false) {
+			$this->load->view('templates/navbar');
+		} else {
+			$this->load->view('templates/navbar_af_login');
+		}
 		$this->load->view('User/profile', $data);
 		$this->load->view('templates/footer');
 	}
-
 }
 
 /* End of file User.php */

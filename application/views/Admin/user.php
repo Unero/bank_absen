@@ -1,22 +1,30 @@
 <div class="container mt-5">
-	<h3 class="text-center">Data Dosen</h3>
-	<a href="<?= base_url();?>dosen/add" class="btn btn-primary">Create</a>
-	<table class="table table-bordered" id="list">
+	<table class="table table-bordered" id="listUser">
 		<thead class="thead-inverse">
 			<tr>
-				<th scope="col" class="text-center">NIP</th>
-				<th scope="col" class="text-center">Nama Dosen</th>
-				<th scope="col" class="text-center">Aksi</th>
+				<th scope="col" class="text-center">Username</th>
+				<th scope="col" class="text-center">Password</th>
+				<th scope="col" class="text-center">NIM</th>
+				<th scope="col" class="text-center">Nama</th>
+				<th scope="col" class="text-center">Kelas</th>
+				<th scope="col" class="text-center">Type</th>
+				<th scope="col" class="text-center">Status</th>
+				<th scope="col" class="text-center">Action</th>
 			</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($dosen as $dsn):?>
+				<?php foreach ($users as $user):?>
 				<tr>
-					<td scope="row" class="text-center"><?= $dsn['nip'];?></td>
-					<td scope="row" class="text-center"><?= $dsn['nama_dosen'];?></td>
+					<td scope="row" class="text-center"><?= $user->username;?></td>
+					<td scope="row" class="text-center"><?= $user->password;?></td>
+					<td scope="row" class="text-center"><?= $user->nim;?></td>
+					<td scope="row" class="text-center"><?= $user->nama;?></td>
+					<td scope="row" class="text-center"><?= $user->kelas;?></td>
+					<td scope="row" class="text-center"><?= $user->type;?></td>
+					<td scope="row" class="text-center"><?= $user->status;?></td>
 					<td scope="row" class="text-center">
-						<a href="<?= base_url();?>dosen/edit/<?= $dsn['nip'];?>" class="btn btn-danger">Edit</a>
-						<a href="<?= base_url();?>dosen/delete/<?= $dsn['nip'];?>" class="btn btn-danger">Hapus</a>
+						<a href="<?= base_url();?>Admin/activate/<?= $user->id;?>" class="btn btn-info mr-2">🔓 Aktifkan</a>
+						<a href="<?= base_url();?>Admin/disable/<?= $user->id;?>" class="btn btn-danger">🔏 Disable</a>
 					</td>
 				</tr>
 				<?php endforeach; ?>
@@ -26,6 +34,6 @@
 
 <script type="text/javascript">
 	$(document).ready( function () {
-		$('#list').DataTable();
+		$('#listUser').DataTable();
 	});
 </script>

@@ -9,20 +9,19 @@
 					<table class="table borderless">
 						<tbody>
 							<tr>
-								<td scope="row"><h5>Username</h5></td>
-								<td><?= $profile[0]['username'];?></td>
+								<td scope="row"><h5>NIM</h5></td>
+								<td><?= $profile[0]->nim;?></td>
 							</tr>
 							<tr>
-								<td scope="row"><h5>Name</h5></td>
-								<td><?= $profile[0]['nama'];?></td>
+								<td scope="row"><h5>Nama</h5></td>
+								<td><?= $profile[0]->nama;?></td>
 							</tr>
 							<tr>
-								<td scope="row"><h5>Alamat</h5></td>
-								<td><?= $profile[0]['alamat'];?></td>
+								<td scope="row"><h5>Kelas</h5></td>
+								<td><?= $profile[0]->kelas;?></td>
 							</tr>
 						</tbody>
 					</table>
-					<a href="" class="btn btn-info">Edit</a>
 				</div>
 			</div>
 		</div>

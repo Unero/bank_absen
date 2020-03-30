@@ -6,13 +6,12 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav mr-auto">
-			<a class="nav-item nav-link" href="<?= base_url();?>Admin/index">User</a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Admin/absensi">Absensi</a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Admin/mahasiswa">Mahasiswa</a>
-			<a class="nav-item nav-link" href="<?= base_url();?>Admin/barang">Barang</a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Absensi">📚Absensi</a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Point">💱Tukar Point</a>
+			<a class="nav-item nav-link" href="<?= base_url();?>Keranjang">🛒Cart</a>
 		</div>
 		<div class="navbar-nav ml-auto">
-			<!-- <a class="nav-item nav-link" href="<?= base_url();?>User/logout">Hi</a> -->
+			<a class="nav-item nav-link" href="<?= base_url();?>User/profile">Profile</a>
 			<a class="nav-item nav-link" href="<?= base_url();?>User/logout">Logout</a>
 		</div>
 	</div>

@@ -1,6 +1,5 @@
 <div class="container mt-5">
-	<h3 class="text-center">Data Mahasiswa</h3>
-	<a href="<?= base_url();?>mahasiswa/add" class="btn btn-primary">Create</a>
+	<h3 class="text-center">Data Absensi</h3>
 	<table class="table table-bordered" id="list">
 		<thead class="thead-inverse">
 			<tr>
@@ -25,6 +24,7 @@
 				<?php endforeach; ?>
 			</tbody>
 	</table>
+	<a href="<?= base_url();?>Admin/save/absensi" class="btn btn-info">Save to Database</a>
 </div>
 
 <script type="text/javascript">

@@ -1,10 +1,10 @@
 <div class="container mt-5">
-	<h3 class="text-center">Data Mahasiswa</h3>
+	<h3 class="text-center">History penukaran point</h3>
 	<table class="table table-bordered" id="list">
 		<thead class="thead-inverse">
 			<tr>
-				<th scope="col" class="text-center">NIM</th>
-				<th scope="col" class="text-center">Nama</th>
+				<th scope="col" class="text-center">Username</th>
+				<th scope="col" class="text-center"></th>
 				<th scope="col" class="text-center">Kelas</th>
 				<th scope="col" class="text-center">Jurusan</th>
 			</tr>

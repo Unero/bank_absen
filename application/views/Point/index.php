@@ -1,57 +1,26 @@
 <div class="container mt-5">
-    <h3>Point anda:</h3>
+    <h3>Point anda: <?= $point[0]->point; ?></h3>
 
     <h3 class="text-center">Item</h3>
     <div class="col">
         <div class="row">
-            <div class="card ml-2" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card ml-2" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card ml-2" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card ml-2" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card ml-2" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card ml-2" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+			<?php foreach ($barang as $brg):?>
+			<div class="card mr-4 mb-3">
+				<div class="card-body">
+					<?= form_open('Keranjang/add'); ?>
+					<?= form_hidden('id', $brg->id); ?>
+					<?= form_hidden('nama', $brg->nama); ?>
+					<?= form_hidden('point', $brg->point); ?>
+					<?= form_hidden('jumlah', 1); ?>
+					<h5 class="card-title"><?= $brg->nama;?></h5>
+					<p class="card-text"><?= $brg->deskripsi;?></p>
+					<p class="card-text">Harga: <?= $brg->point;?></p>
+					<p class="card-text">Stock: <?= $brg->stock;?> item</p>
+					<button type="submit" class="btn btn-primary">Add to Cart</button>
+					<?= form_close(); ?>
+				</div>
+			</div>
+			<?php endforeach; ?>
         </div>
     </div>
 </div>
