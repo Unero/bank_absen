@@ -9,8 +9,7 @@
 				<th scope="col" class="text-center">Nama</th>
 				<th scope="col" class="text-center">Deskripsi</th>
 				<th scope="col" class="text-center">Point</th>
-				<th scope="col" class="text-center">Stock</th>
-				<th scope="col" class="text-center">Add Stock</th>
+				<th scope="col" class="text-center">Edit Point</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -19,15 +18,13 @@
 					<td scope="row" class="text-center"><?= $brg->nama;?></td>
 					<td scope="row" class="text-center"><?= $brg->deskripsi;?></td>
 					<td scope="row" class="text-center"><?= $brg->point;?></td>
-					<td scope="row" class="text-center"><?= $brg->stock;?></td>
 					<td scope="row" class="text-center">
-						<?= form_open('Barang/addStock/'.$brg->id); ?>
+						<?= form_open('Barang/editPoint/'.$brg->id); ?>
 						<form action="" method="post">
 							<div class="form-group">
-							  <input type="hidden" name="stock_awal" value="<?= $brg->stock; ?>">
-							  <input type="number" name="stock" class="form-control">
+							  <input type="number" name="point" class="form-control" value="<?= $brg->point;?>">
 							</div>
-							<button type="submit" class="btn btn-primary">Add Stock</button>
+							<button type="submit" class="btn btn-primary">Edit Point</button>
 						</form>
 						<?= form_close(); ?>
 					</td>
@@ -61,10 +58,6 @@
 			<div class="form-group">
 			  <label for="point">Point</label>
 			  <input type="number" name="point" id="point" class="form-control" placeholder="Masukkan point barang">
-			</div>
-			<div class="form-group">
-			  <label for="stock">Stock</label>
-			  <input type="number" name="stock" id="stock" class="form-control" placeholder="Masukkan jumlah stock">
 			</div>
 			<button type="submit" class="btn btn-success">Buat</button>
 		</form>

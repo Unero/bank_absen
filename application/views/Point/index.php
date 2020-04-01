@@ -15,7 +15,6 @@
 					<h5 class="card-title"><?= $brg->nama;?></h5>
 					<p class="card-text"><?= $brg->deskripsi;?></p>
 					<p class="card-text">Harga: <?= $brg->point;?></p>
-					<p class="card-text">Stock: <?= $brg->stock;?> item</p>
 					<button type="submit" class="btn btn-primary">Add to Cart</button>
 					<?= form_close(); ?>
 				</div>

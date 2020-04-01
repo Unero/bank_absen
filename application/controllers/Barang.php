@@ -13,7 +13,6 @@ class Barang extends CI_Controller {
 		$data = array(
 			'nama' => $this->input->post('nama'),
 			'deskripsi' => $this->input->post('deskripsi'),
-			'point' => $this->input->post('point'),
 			'stock' => $this->input->post('stock')
 		);
 		$this->Barang_model->add($data);
@@ -25,9 +24,8 @@ class Barang extends CI_Controller {
 		redirect('Admin/barang','refresh');
 	}
 
-	function addStock($id){
-		$stock = $this->input->post('stock_awal') + $this->input->post('stock');
-		$this->Barang_model->addStock($id, $stock);
+	function editPoint($id){
+		$this->Barang_model->editPoints($id, $this->input->post('point'));
 		redirect('Admin/barang','refresh');
 	}
 }

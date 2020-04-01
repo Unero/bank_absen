@@ -44,7 +44,8 @@ class Keranjang extends CI_Controller {
 	function bayar($total){
 		$this->load->model('Point_model');
 		$user_point = $this->Point_model->getPoint($this->session->userdata('user'));
-		$total_point = (int)$user_point - (int)$total;
+		$total_point = (int)$user_point[0]->point - (int)$total;
+
 		if ($total_point < 0) {
 			$message = "Point anda tidak mencukupi";
 			echo "<script type='text/javascript'>alert('$message');</script>";
@@ -52,6 +53,7 @@ class Keranjang extends CI_Controller {
 		} else {
 			$this->Point_model->insertPoint($this->session->userdata('user'), $total_point);
 			redirect('Point','refresh');
+			$this->cart->empty_cart();
 			$message = "Pembelian Sukses";
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
